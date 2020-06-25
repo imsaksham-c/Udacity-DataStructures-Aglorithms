@@ -190,3 +190,21 @@ for i in element_2:
 print("Test Case 3:")
 print (union(linked_list_5,linked_list_6)) # empty list, returns None
 print (intersection(linked_list_5,linked_list_6)) # empty list, returns None
+
+# Test case 4
+
+linked_list_7 = LinkedList()
+linked_list_8 = LinkedList()
+
+element_1 = []
+element_2 = [1,2,3]
+
+for i in element_1:
+    linked_list_7.append(i)
+
+for i in element_2:
+    linked_list_8.append(i)
+
+print("Test Case 4:")
+print (union(linked_list_7,linked_list_8)) # empty list, returns None
+print (intersection(linked_list_7,linked_list_8)) # empty list, returns None

@@ -112,6 +112,7 @@ class LRU_Cache(object):
         
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent.
+
         if key not in self.lru_dict:
             return -1
 
@@ -124,6 +125,9 @@ class LRU_Cache(object):
         
     def set(self, key, value):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
+        if self.capacity == 0:
+            print("Can't perform operations on 0 capacity cache")
+            return
         if key not in self.lru_dict:
             if self.get_number_of_cached_entries() == self.get_capacity():
                 lru_key, lru_value = self.get_list().get_oldest_key()
@@ -151,6 +155,9 @@ our_cache.set(5, 5)
 our_cache.set(6, 6)
 
 print ("Pass" if  (-1 == our_cache.get(3)) else "Fail") # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+
+our_cache = LRU_Cache(0)
+# should print "Can't perform operations on 0 capacity cache"
 
 our_cache.set(6, 7)
 
